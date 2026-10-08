@@ -107,3 +107,5 @@ GitHub.sublime-settings
 
 
 # End of https://www.gitignore.io/api/phpstorm,sublimetext,visualstudiocode
+# Documentación de trabajo y notas privadas: solo locales, no se suben (el repo es público)
+docs/

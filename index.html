@@ -1,187 +1,812 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Andrés Godínez</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrés Godínez · Sr Backend Engineer</title>
+  <meta name="description" content="Andrés Godínez — Sr Backend Engineer y desarrollador full-stack en Monterrey, México. Integraciones, arquitectura de eventos en AWS y más de 10 años construyendo productos que se quedan en producción.">
+  <meta property="og:title" content="Andrés Godínez · Sr Backend Engineer">
+  <meta property="og:description" content="Sr Backend Engineer y full-stack developer en Monterrey. Integraciones, eventos en AWS y más de 10 años construyendo productos que se quedan en producción.">
+  <meta property="og:url" content="https://andresgodinez.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://andresgodinez.github.io/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Andrés Godínez · Sr Backend Engineer · Full-stack Developer">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta name="theme-color" content="#fefffc">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2026-10-08n">
+  <script>
+    // Idioma y clase .js antes de pintar, para evitar parpadeos.
+    (function () {
+      var root = document.documentElement, lang;
+      root.classList.add('js');
+      try { lang = localStorage.getItem('lang'); } catch (e) {}
+      if (lang !== 'es' && lang !== 'en') {
+        lang = (navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en';
+      }
+      root.lang = lang;
+      root.dataset.lang = lang;
+    })();
+  </script>
 </head>
 <body>
-<nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-           class="d-block mx-auto">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
-        <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
-        <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
-        <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
-        <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
-        <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
-      </svg>
+
+<a class="skip-link" href="#main"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+
+<!-- NAV: píldora flotante -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-mark" aria-label="Inicio">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="9" r="3.2"/>
+      <path d="M12 2.8v1.4M5.6 9H4.2M19.8 9h-1.4M7.4 4.4l1 1M16.6 4.4l-1 1"/>
+      <path d="M2.5 19.5l5-5.2 3.4 3.1 3.6-4.4 7 6.5"/>
+    </svg>
+    <span class="nav-name">Andrés Godínez</span>
+  </a>
+  <nav class="nav-links" id="nav-links" aria-label="Secciones">
+    <a href="#about"><span lang="es">Sobre mí</span><span lang="en">About</span></a>
+    <a href="#expertise">Expertise</a>
+    <a href="#cases"><span lang="es">Casos</span><span lang="en">Cases</span></a>
+    <a href="#experience"><span lang="es">Trayectoria</span><span lang="en">Experience</span></a>
+    <a href="#stack">Stack</a>
+  </nav>
+  <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+    <button type="button" data-set-lang="es">ES</button>
+    <button type="button" data-set-lang="en">EN</button>
+  </div>
+  <a href="#contact" class="nav-cta"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+  <button type="button" class="nav-menu" aria-controls="nav-links" aria-expanded="false">
+    <span></span><b class="sr-only" lang="es">Menú</b><b class="sr-only" lang="en">Menu</b>
+  </button>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- HERO: Monterrey de día (imagen) con un cometa que ilumina las tecnologías -->
+  <section class="hero hero--photo" id="top">
+    <picture class="scene-photo">
+      <source srcset="images/hero.webp" type="image/webp">
+      <img class="layer" data-depth=".12" src="images/hero.jpg" alt="" width="1376" height="768" fetchpriority="high">
+    </picture>
+    <div class="tech-sky" aria-hidden="true"></div>
+
+
+    <div class="hero-card" data-hero-card>
+      <picture>
+        <source srcset="images/retrato.webp" type="image/webp">
+        <img class="avatar" src="images/retrato.jpg" alt="Retrato ilustrado de Andrés Godínez" width="72" height="72">
+      </picture>
+      <p class="eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        <span lang="es">Disponible para nuevas oportunidades · Remoto / Híbrido</span>
+        <span lang="en">Open to new opportunities · Remote / Hybrid</span>
+      </p>
+      <h1>Andrés Godínez</h1>
+      <p class="role">Sr Backend Engineer · Full-stack Developer</p>
+      <p class="hero-lead hero-lead-short">
+        <span lang="es">Más de 10 años construyendo backend y productos que se quedan en producción.</span>
+        <span lang="en">10+ years building backends and products that stay in production.</span>
+      </p>
+      <p class="hero-lead hero-lead-long">
+        <span lang="es">Más de 10 años construyendo backend y productos completos: desde integraciones en tiempo real para una plataforma de lealtad con más de 38 millones de usuarios hasta un sistema que lleva más de 8 años operando un negocio todos los días.</span>
+        <span lang="en">10+ years building backends and complete products: from real-time integrations for a loyalty platform with 38M+ users to a system that has run a business every day for 8+ years.</span>
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/andres-godinez" target="_blank" rel="noopener">LinkedIn <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-secondary" href="https://github.com/AndresGodinez" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-secondary" href="https://carvaz.com" target="_blank" rel="noopener">Carvaz</a>
+      </div>
+      <p class="caption place"><span lang="es">Monterrey, Nuevo León · México</span><span lang="en">Monterrey, Nuevo León · Mexico</span></p>
+    </div>
+
+    <a class="hero-feature" href="#case-spin">
+      <p class="kicker"><span lang="es">Caso destacado · Spin</span><span lang="en">Featured case · Spin</span></p>
+      <p class="feature-metric">15–20 s <span class="feature-arrow" aria-hidden="true">→</span> &lt;1 s</p>
+      <p class="feature-text">
+        <span lang="es">Tiempo de respuesta de los endpoints de una plataforma de lealtad con más de 38M de usuarios, gracias a la caché en Apigee.</span>
+        <span lang="en">Endpoint response time on a loyalty platform with 38M+ users, thanks to Apigee caching.</span>
+      </p>
+      <span class="link"><span lang="es">Ver el caso</span><span lang="en">See the case</span> <span class="arrow" aria-hidden="true">→</span></span>
     </a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Facebook</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Twitter</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Youtube</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
-  </div>
-</nav>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-  <div class="col-md-5 p-lg-5 mx-auto my-5">
-    <h1 class="display-4 font-weight-normal">Andrés Godínez</h1>
-    <p class="lead font-weight-normal">Software Developer.</p>
-    <a class="btn btn-outline-secondary" href="https://www.carvaz.com">Carvaz</a>
-  </div>
-  <div class="product-device box-shadow d-none d-md-block"></div>
-  <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-</div>
+    <a href="#about" class="scroll-hint" aria-hidden="true" tabindex="-1">
+      <span lang="es">Desliza</span><span lang="en">Scroll</span><i></i>
+    </a>
+  </section>
 
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Dental</h2>
-      <p class="lead">Oral health professionals.</p>
-    </div>
-    <div class="bg-light box-shadow mx-auto " style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;" >
-      <img src="images/detalHome.png" class="img-fluid" alt="Software Dental">
-    </div>
-  </div>
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5">Restaurant Software</h2>
-      <p class="lead">professional management of online restaurants.</p>
-    </div>
-    <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-      <img src="images/restauranteHome.png" class="img-fluid" alt="Restaurante Home">
-    </div>
-  </div>
-</div>
+  <!-- SOBRE MÍ -->
+  <section id="about" class="section" data-spy>
+    <div class="container split split-about">
+      <div data-reveal>
+        <p class="kicker"><span lang="es">Sobre mí</span><span lang="en">About me</span></p>
+        <h2 class="heading-lg">
+          <span lang="es">Conecto sistemas y convierto reglas de negocio complicadas en software confiable.</span>
+          <span lang="en">I connect systems and turn complicated business rules into reliable software.</span>
+        </h2>
+        <div class="prose">
+          <p lang="es">Soy ingeniero en sistemas computacionales, con más de 10 años construyendo backend y productos completos. Mi trabajo va desde integraciones en tiempo real para una plataforma de lealtad con millones de usuarios hasta el sistema de una distribuidora que lleva más de 8 años operando con mi código.</p>
+          <p lang="en">I'm a computer systems engineer with 10+ years building backends and complete products. My work ranges from real-time integrations for a loyalty platform with millions of users to a distributor's system that has run on my code for 8+ years.</p>
+          <p lang="es">Me siento cómodo del lado del cliente: he definido arquitecturas, llevado juntas con equipos de producto, seguridad y arquitectura, y guiado a otros desarrolladores. Antes de dedicarme al desarrollo fui gerente en Coppel, y ahí aprendí a formar equipos y a escuchar al cliente.</p>
+          <p lang="en">I'm comfortable on the client side: I've defined architectures, run meetings with product, security and architecture teams, and guided other developers. Before going into development I was a manager at Coppel, where I learned to build teams and listen to customers.</p>
+          <p lang="es">Trabajo con la IA como parte del equipo: valido los diseños con ella antes de escribir código y orquesto agentes especializados para construir más rápido sin perder calidad.</p>
+          <p lang="en">I work with AI as part of the team: I validate designs with it before writing code and orchestrate specialized agents to build faster without losing quality.</p>
+        </div>
+      </div>
 
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
+      <aside class="facts" data-reveal>
+        <picture class="facts-photo">
+          <source srcset="images/retrato.webp" type="image/webp">
+          <img src="images/retrato.jpg" alt="Retrato ilustrado de Andrés Godínez" width="640" height="640" loading="lazy">
+        </picture>
+        <dl>
+          <div>
+            <dt><span lang="es">Formación</span><span lang="en">Education</span></dt>
+            <dd><span lang="es">Ingeniería en Sistemas Computacionales · Tecnológico de Tapachula · titulado</span><span lang="en">B.Eng. in Computer Systems · Tecnológico de Tapachula</span></dd>
+          </div>
+          <div>
+            <dt><span lang="es">Rol</span><span lang="en">Role</span></dt>
+            <dd>Sr Backend Engineer · Full-stack Developer</dd>
+          </div>
+          <div>
+            <dt><span lang="es">Ubicación</span><span lang="en">Location</span></dt>
+            <dd><span lang="es">Monterrey, N.L. · remoto o híbrido</span><span lang="en">Monterrey, Mexico · remote or hybrid</span></dd>
+          </div>
+          <div>
+            <dt><span lang="es">Cómo trabajo</span><span lang="en">How I work</span></dt>
+            <dd><span lang="es">Scrum y Kanban · revisiones de código · TDD · guardias en producción</span><span lang="en">Scrum and Kanban · code review · TDD · production on-call</span></dd>
+          </div>
+        </dl>
+      </aside>
     </div>
-    <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-  <div class="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-</div>
+  </section>
 
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
+  <!-- CIFRAS: tarjeta azul atmosférica -->
+  <section class="section section-tight">
+    <div class="container">
+      <div class="blue-card" data-reveal>
+        <h2 class="heading">
+          <span lang="es">Escala real, en producción.</span>
+          <span lang="en">Real scale, in production.</span>
+        </h2>
+        <dl class="stats">
+          <div><dt><span data-count="10">10</span>+</dt><dd><span lang="es">años construyendo software</span><span lang="en">years building software</span></dd></div>
+          <div><dt><span data-count="38">38</span>M+</dt><dd><span lang="es">usuarios en una plataforma de lealtad</span><span lang="en">users on a loyalty platform</span></dd></div>
+          <div><dt><span class="beat">&lt;1 s</span></dt><dd><span lang="es">de respuesta, antes 15–20 s, gracias a la caché que implementé</span><span lang="en">response time, down from 15–20 s, thanks to the caching I added</span></dd></div>
+          <div><dt><span data-count="8">8</span>+</dt><dd><span lang="es">años de un sistema mío operando cada día</span><span lang="en">years of a system I built running every day</span></dd></div>
+        </dl>
+      </div>
     </div>
-    <div class="bg-white box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-white box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-</div>
+  </section>
 
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-white box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-white box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-</div>
+  <!-- EXPERTISE -->
+  <section id="expertise" class="section" data-spy>
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <p class="kicker">Expertise</p>
+        <h2 class="heading-lg">
+          <span lang="es">Lo que se repite en cada lugar donde he trabajado.</span>
+          <span lang="en">What keeps showing up wherever I've worked.</span>
+        </h2>
+      </header>
 
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
-        <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
-        <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
-        <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
-        <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
-        <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
-      </svg>
-      <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+      <div class="expertise" data-stagger>
+        <a class="exp-card" data-reveal href="#case-whirlpool">
+          <div class="exp-top">
+            <span class="exp-icon" style="--i: url('images/icons/exp-integration.svg')" aria-hidden="true"></span>
+            <span class="exp-num">01</span>
+          </div>
+          <h3 class="heading-sm"><span lang="es">Integración de sistemas</span><span lang="en">Systems integration</span></h3>
+          <p lang="es">Conecto sistemas que no se conocen entre sí: API gateways, ERPs, pasarelas de pago y proveedores externos.</p>
+          <p lang="en">I connect systems that don't know each other: API gateways, ERPs, payment gateways and third-party providers.</p>
+          <p class="exp-metric"><strong><span lang="es">4 marcas</span><span lang="en">4 brands</span></strong> <span lang="es">un solo componente conectado a SAP</span><span lang="en">one component connected to SAP</span></p>
+          <p class="tags">Apigee · SAP · Openpay</p>
+          <span class="link"><span lang="es">Ver el caso Whirlpool</span><span lang="en">See the Whirlpool case</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="exp-card" data-reveal href="#case-spin">
+          <div class="exp-top">
+            <span class="exp-icon" style="--i: url('images/icons/exp-events.svg')" aria-hidden="true"></span>
+            <span class="exp-num">02</span>
+          </div>
+          <h3 class="heading-sm"><span lang="es">Arquitectura de eventos</span><span lang="en">Event-driven architecture</span></h3>
+          <p lang="es">Paso flujos síncronos lentos a eventos de forma gradual, sin detener la operación.</p>
+          <p lang="en">I move slow synchronous flows to events gradually, without stopping operations.</p>
+          <p class="exp-metric"><strong><span lang="es">2 meses</span><span lang="en">2 months</span></strong> <span lang="es">para migrar a eventos con feature flags</span><span lang="en">to move to events with feature flags</span></p>
+          <p class="tags">AWS Lambda · EventBridge · Kafka · DynamoDB</p>
+          <span class="link"><span lang="es">Ver el caso Spin</span><span lang="en">See the Spin case</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="exp-card" data-reveal href="#case-cfmarro">
+          <div class="exp-top">
+            <span class="exp-icon" style="--i: url('images/icons/exp-finance.svg')" aria-hidden="true"></span>
+            <span class="exp-num">03</span>
+          </div>
+          <h3 class="heading-sm"><span lang="es">Lógica de negocio financiera</span><span lang="en">Financial business logic</span></h3>
+          <p lang="es">Créditos con intereses moratorios, prórrogas y convenios; comisiones mixtas; presupuestos de puntos con alertas.</p>
+          <p lang="en">Credit with late-payment interest, extensions and settlements; mixed commissions; points budgets with alerts.</p>
+          <p class="exp-metric"><strong><span lang="es">8+ años</span><span lang="en">8+ years</span></strong> <span lang="es">de crédito y cobranza en producción</span><span lang="en">of credit and collections in production</span></p>
+          <p class="tags">CFMarro · Wirewatt · Barber Agenda · Spin</p>
+          <span class="link"><span lang="es">Ver el caso CFMarro</span><span lang="en">See the CFMarro case</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="exp-card" data-reveal href="#products">
+          <div class="exp-top">
+            <span class="exp-icon" style="--i: url('images/icons/exp-production.svg')" aria-hidden="true"></span>
+            <span class="exp-num">04</span>
+          </div>
+          <h3 class="heading-sm"><span lang="es">De la idea a producción</span><span lang="en">From idea to production</span></h3>
+          <p lang="es">Llevo productos de cero a producción, monto su infraestructura y los mantengo funcionando por años.</p>
+          <p lang="en">I take products from zero to production, set up their infrastructure and keep them running for years.</p>
+          <p class="exp-metric"><strong><span lang="es">3</span><span lang="en">3</span></strong> <span lang="es">productos propios en producción</span><span lang="en">products of my own, in production</span></p>
+          <p class="tags">Docker · Traefik · GitHub Actions</p>
+          <span class="link"><span lang="es">Ver los productos</span><span lang="en">See the products</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="exp-card" data-reveal href="#case-spin">
+          <div class="exp-top">
+            <span class="exp-icon" style="--i: url('images/icons/exp-quality.svg')" aria-hidden="true"></span>
+            <span class="exp-num">05</span>
+          </div>
+          <h3 class="heading-sm"><span lang="es">Calidad y operación</span><span lang="en">Quality and operations</span></h3>
+          <p lang="es">Pruebas desde el diseño, observabilidad para saber qué falló y dónde, y guardias en producción.</p>
+          <p lang="en">Testing from design onward, observability to know what failed and where, and production on-call.</p>
+          <p class="exp-metric"><strong><span lang="es">&lt;1 s</span><span lang="en">&lt;1 s</span></strong> <span lang="es">de respuesta, antes 15–20 s</span><span lang="en">response time, down from 15–20 s</span></p>
+          <p class="tags">TDD · E2E · Datadog · SonarQube</p>
+          <span class="link"><span lang="es">Ver el caso Spin</span><span lang="en">See the Spin case</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+        <a class="exp-card" data-reveal href="#about">
+          <div class="exp-top">
+            <span class="exp-icon" style="--i: url('images/icons/exp-ai.svg')" aria-hidden="true"></span>
+            <span class="exp-num">06</span>
+          </div>
+          <h3 class="heading-sm"><span lang="es">IA aplicada</span><span lang="en">Applied AI</span></h3>
+          <p lang="es">Equipos de agentes con un modelo por rol para optimizar costo, spec-driven development, MCPs y RAG.</p>
+          <p lang="en">Agent teams with one model per role to optimize cost, spec-driven development, MCPs and RAG.</p>
+          <p class="exp-metric"><strong><span lang="es">IA first</span><span lang="en">AI first</span></strong> <span lang="es">diseño validado con IA antes de escribir código</span><span lang="en">design validated with AI before writing code</span></p>
+          <p class="tags">MCP · RAG · n8n · Copilot</p>
+          <span class="link"><span lang="es">Ver cómo trabajo</span><span lang="en">See how I work</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+      </div>
     </div>
-    <div class="col-6 col-md">
-      <h5>Features</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Cool stuff</a></li>
-        <li><a class="text-muted" href="#">Random feature</a></li>
-        <li><a class="text-muted" href="#">Team feature</a></li>
-        <li><a class="text-muted" href="#">Stuff for developers</a></li>
-        <li><a class="text-muted" href="#">Another one</a></li>
-        <li><a class="text-muted" href="#">Last time</a></li>
-      </ul>
+  </section>
+
+  <!-- CASOS DE ESTUDIO -->
+  <section id="cases" class="section section-paper" data-spy>
+    <div class="container">
+      <figure class="band" data-reveal>
+        <picture>
+          <source srcset="images/huasteca.webp" type="image/webp">
+          <img src="images/huasteca-web.jpg" alt="Ilustración del cañón de La Huasteca, Nuevo León, al amanecer" width="1584" height="672" loading="lazy">
+        </picture>
+        <figcaption class="band-card">
+          <p class="kicker"><span lang="es">Casos de estudio</span><span lang="en">Case studies</span></p>
+          <h2 class="heading-lg">
+            <span lang="es">Problemas reales, decisiones y resultados.</span>
+            <span lang="en">Real problems, decisions and results.</span>
+          </h2>
+        </figcaption>
+      </figure>
+
+      <!-- Caso: Spin -->
+      <article class="case" id="case-spin">
+        <header class="case-head" data-reveal>
+          <p class="caption case-meta">Spin · Sr Backend Engineer · 2022–2026</p>
+          <h3 class="heading">
+            <span lang="es">Transacciones de lealtad en tiempo real, con antifraude y eventos.</span>
+            <span lang="en">Real-time loyalty transactions, with anti-fraud and events.</span>
+          </h3>
+        </header>
+
+        <div class="case-grid">
+          <div class="case-body" data-reveal>
+            <h4 class="case-label"><span lang="es">Contexto</span><span lang="en">Context</span></h4>
+            <p lang="es">Spin opera un programa de lealtad con más de 38 millones de usuarios y unos 2 millones de transacciones al día desde los puntos de venta de OXXO. Cada compra debe revisarse contra fraude y acreditarse en el motor de lealtad mientras el cliente sigue en caja.</p>
+            <p lang="en">Spin runs a loyalty program with 38M+ users and about 2M daily transactions from OXXO points of sale. Every purchase must be checked for fraud and credited in the loyalty engine while the customer is still at the register.</p>
+
+            <h4 class="case-label"><span lang="es">Problema</span><span lang="en">Problem</span></h4>
+            <p lang="es">Todo el flujo era síncrono: cada paso esperaba respuesta y sumaba latencia, y algunos endpoints tardaban de 15 a 20 segundos. Además, cajeros que probaban números de tarjeta llenaban los servicios de peticiones inválidas.</p>
+            <p lang="en">The whole flow was synchronous: every step waited for a response and added latency, and some endpoints took 15 to 20 seconds. On top of that, cashiers trying card numbers flooded the services with invalid requests.</p>
+
+            <h4 class="case-label"><span lang="es">Lo que construí</span><span lang="en">What I built</span></h4>
+            <ul lang="es">
+              <li>El flujo principal en <strong>Apigee</strong>: autenticación por API key, consulta al motor antifraude, decisión en JavaScript (aceptar, revisar o rechazar) y SharedFlows reutilizables.</li>
+              <li>Un <strong>validador de tarjetas</strong> en Node.js que revisa el dígito verificador y frena las peticiones inválidas antes de llegar a los motores.</li>
+              <li>La <strong>migración a eventos</strong>: webhook en Lambda (Python), EventBridge, Kafka y consumidores en Lambda que bloquean usuarios y controlan en DynamoDB el presupuesto de puntos de cada campaña, con alertas al 90 y 95 %.</li>
+              <li>Dashboards y trazas en <strong>Datadog</strong> para saber en qué paso falló una petición.</li>
+            </ul>
+            <ul lang="en">
+              <li>The main flow in <strong>Apigee</strong>: API key authentication, a call to the anti-fraud engine, a JavaScript decision (accept, review or refuse) and reusable SharedFlows.</li>
+              <li>A <strong>card validator</strong> in Node.js that validates the check digit and stops invalid requests before they reach the engines.</li>
+              <li>The <strong>move to events</strong>: a webhook on Lambda (Python), EventBridge, Kafka and Lambda consumers that block users and track each campaign's points budget in DynamoDB, with alerts at 90% and 95%.</li>
+              <li><strong>Datadog</strong> dashboards and traces to see at which step a request failed.</li>
+            </ul>
+
+            <h4 class="case-label"><span lang="es">Decisiones</span><span lang="en">Decisions</span></h4>
+            <ul lang="es">
+              <li>Migrar con <strong>feature flags</strong>, por partes, en dos meses.</li>
+              <li>Usar la <strong>caché de Apigee</strong> para los usuarios más activos.</li>
+              <li>Prototipé mover la lógica de los proxies a <strong>.NET en Kubernetes</strong>. El equipo lo descartó por desempeño y por el costo de mantener dos implementaciones.</li>
+            </ul>
+            <ul lang="en">
+              <li>Migrate with <strong>feature flags</strong>, step by step, over two months.</li>
+              <li>Use <strong>Apigee caching</strong> for the most active users.</li>
+              <li>I prototyped moving the proxy logic to <strong>.NET on Kubernetes</strong>. The team dropped it because of performance and the cost of keeping two implementations.</li>
+            </ul>
+          </div>
+
+          <aside class="case-aside" data-reveal>
+            <h4 class="case-label"><span lang="es">Resultado</span><span lang="en">Result</span></h4>
+            <dl class="results">
+              <div><dt>15–20 s → &lt;1 s</dt><dd><span lang="es">tiempo de respuesta con la caché de Apigee</span><span lang="en">response time with Apigee caching</span></dd></div>
+              <div><dt><span lang="es">2 meses</span><span lang="en">2 months</span></dt><dd><span lang="es">para migrar a eventos sin detener la operación</span><span lang="en">to move to events without stopping operations</span></dd></div>
+              <div><dt><span lang="es">Menos fraude</span><span lang="en">Less fraud</span></dt><dd><span lang="es">reducción notable de fraudes e intentos de estafa</span><span lang="en">a notable drop in fraud and scam attempts</span></dd></div>
+            </dl>
+            <h4 class="case-label"><span lang="es">Equipo</span><span lang="en">Team</span></h4>
+            <p lang="es">Cuatro ingenieros backend senior. Revisiones de código, propuestas de arquitectura, guardias semanales e integración de nuevos miembros.</p>
+            <p lang="en">Four senior backend engineers. Code reviews, architecture proposals, weekly on-call and onboarding new members.</p>
+            <p class="tags">Apigee · JavaScript · Node.js · Python · AWS Lambda · EventBridge · Kafka · DynamoDB · Datadog</p>
+          </aside>
+        </div>
+
+        <figure class="flow-card" data-reveal>
+          <!-- Escritorio: horizontal -->
+          <svg class="flow flow-wide" viewBox="0 -40 1040 440" role="img" aria-labelledby="flow-cap">
+            <defs>
+              <marker id="arr1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z"/></marker>
+            </defs>
+            <text class="f-zone" x="20" y="-16"><tspan lang="es">SÍNCRONO · TIEMPO REAL</tspan><tspan lang="en">SYNCHRONOUS · REAL TIME</tspan></text>
+            <text class="f-zone" x="1020" y="292" text-anchor="end"><tspan lang="es">ASÍNCRONO · EVENTOS</tspan><tspan lang="en">ASYNCHRONOUS · EVENTS</tspan></text>
+
+            <g class="f-edges" marker-end="url(#arr1)">
+              <path data-slot="0" d="M140 100 H168"/><path data-slot="1" d="M290 100 H318"/><path data-slot="2" d="M450 100 H478"/>
+              <path data-slot="3" d="M610 100 C635 100 635 30 658 30"/>
+              <path data-slot="3" class="dash" d="M610 100 H658"/><path data-slot="4" class="dash" d="M820 100 H848"/>
+              <path data-slot="3" d="M610 100 C635 100 635 170 658 170"/><path data-slot="4" d="M820 170 H848"/>
+              <path data-slot="5" class="dash" d="M740 192 V250 H90 V306"/>
+              <path data-slot="6" d="M160 330 H188"/><path data-slot="7" d="M320 330 H348"/><path data-slot="8" d="M500 330 H528"/><path data-slot="9" d="M630 330 H658"/><path data-slot="10" d="M820 330 H848"/>
+            </g>
+            <g class="f-label" text-anchor="middle">
+              <text x="155" y="140">API key</text><text x="304" y="140">ServiceCallout</text>
+              <text x="464" y="140"><tspan lang="es">riesgo</tspan><tspan lang="en">risk</tspan></text>
+              <text x="652" y="22" text-anchor="end">refused · review</text>
+              <text x="662" y="70" text-anchor="start"><tspan lang="es">review · en segundo plano</tspan><tspan lang="en">review · in the background</tspan></text>
+              <text x="652" y="196" text-anchor="end">accepted</text>
+              <text x="420" y="242"><tspan lang="es">notifica el cambio</tspan><tspan lang="en">notifies the change</tspan></text>
+              <text x="175" y="370"><tspan lang="es">publica</tspan><tspan lang="en">publishes</tspan></text>
+              <text x="335" y="370"><tspan lang="es">regla</tspan><tspan lang="en">rule</tspan></text>
+              <text x="515" y="370"><tspan lang="es">escribe</tspan><tspan lang="en">writes</tspan></text>
+              <text x="645" y="370"><tspan lang="es">lee</tspan><tspan lang="en">reads</tspan></text>
+              <text x="835" y="370"><tspan lang="es">actualiza</tspan><tspan lang="en">updates</tspan></text>
+            </g>
+
+            <g class="f-nodes">
+              <rect class="f-ext" x="20" y="78" width="120" height="44" rx="22"/>
+              <rect class="f-mine" x="170" y="78" width="120" height="44" rx="8"/>
+              <rect class="f-ext" x="320" y="78" width="130" height="44" rx="8"/>
+              <rect class="f-mine" x="480" y="78" width="130" height="44" rx="8"/>
+              <rect x="660" y="8" width="160" height="44" rx="22"/>
+              <rect class="f-mine" x="660" y="78" width="160" height="44" rx="8"/>
+              <rect class="f-mine" x="850" y="78" width="170" height="44" rx="8"/>
+              <rect class="f-ext" x="660" y="148" width="160" height="44" rx="8"/>
+              <rect x="850" y="148" width="170" height="44" rx="22"/>
+              <rect class="f-mine" x="20" y="308" width="140" height="44" rx="8"/>
+              <rect x="190" y="308" width="130" height="44" rx="8"/>
+              <rect class="f-mine" x="350" y="308" width="150" height="44" rx="8"/>
+              <rect x="530" y="308" width="100" height="44" rx="8"/>
+              <rect class="f-mine" x="660" y="308" width="160" height="44" rx="8"/>
+              <rect x="850" y="308" width="170" height="44" rx="8"/>
+            </g>
+            <g class="f-text" text-anchor="middle">
+              <text x="80" y="105"><tspan lang="es">Punto de venta</tspan><tspan lang="en">Point of sale</tspan></text>
+              <text x="230" y="105">Apigee proxy</text>
+              <text x="385" y="105"><tspan lang="es">Motor antifraude</tspan><tspan lang="en">Anti-fraud engine</tspan></text>
+              <text x="545" y="105"><tspan lang="es">Evaluación JS</tspan><tspan lang="en">JS evaluation</tspan></text>
+              <text x="740" y="35"><tspan lang="es">Rechazo</tspan><tspan lang="en">Rejected</tspan></text>
+              <text x="740" y="105"><tspan lang="es">SharedFlow → evento</tspan><tspan lang="en">SharedFlow → event</tspan></text>
+              <text x="935" y="105"><tspan lang="es">Bloqueo de usuario</tspan><tspan lang="en">User blocking</tspan></text>
+              <text x="740" y="175"><tspan lang="es">Motor de lealtad</tspan><tspan lang="en">Loyalty engine</tspan></text>
+              <text x="935" y="175"><tspan lang="es">Respuesta + ticket</tspan><tspan lang="en">Response + receipt</tspan></text>
+              <text x="90" y="335">Webhook · Lambda</text>
+              <text x="255" y="335">EventBridge</text>
+              <text x="425" y="335"><tspan lang="es">Lambda productora</tspan><tspan lang="en">Producer Lambda</tspan></text>
+              <text x="580" y="335">Kafka</text>
+              <text x="740" y="335">Lambda Python</text>
+              <text x="935" y="335"><tspan lang="es">DynamoDB · presupuestos</tspan><tspan lang="en">DynamoDB · budgets</tspan></text>
+            </g>
+          </svg>
+
+          <!-- Celular: vertical -->
+          <svg class="flow flow-tall" viewBox="0 0 360 920" role="img" aria-labelledby="flow-cap">
+            <defs>
+              <marker id="arr2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z"/></marker>
+            </defs>
+            <text class="f-zone" x="20" y="16"><tspan lang="es">SÍNCRONO · TIEMPO REAL</tspan><tspan lang="en">SYNCHRONOUS · REAL TIME</tspan></text>
+            <text class="f-zone" x="20" y="492"><tspan lang="es">ASÍNCRONO</tspan><tspan lang="en">ASYNCHRONOUS</tspan></text>
+
+            <g class="f-edges" marker-end="url(#arr2)">
+              <path data-slot="0" d="M180 70 V98"/><path data-slot="1" d="M180 140 V168"/><path data-slot="2" d="M180 210 V238"/>
+              <path data-slot="3" d="M180 280 C180 305 60 305 60 328"/>
+              <path data-slot="3" class="dash" d="M180 280 V328"/>
+              <path data-slot="3" d="M180 280 C180 305 300 305 300 328"/>
+              <path data-slot="4" d="M300 376 V398"/>
+              <path data-slot="5" class="dash" d="M300 440 V470 H180 V508"/>
+              <path data-slot="6" d="M180 550 V578"/><path data-slot="7" d="M180 620 V648"/><path data-slot="8" d="M180 690 V718"/><path data-slot="9" d="M180 760 V788"/><path data-slot="10" d="M180 830 V858"/>
+            </g>
+            <g class="f-label">
+              <text x="190" y="89">API key</text><text x="190" y="159">ServiceCallout</text>
+              <text x="190" y="229"><tspan lang="es">riesgo</tspan><tspan lang="en">risk</tspan></text>
+              <text x="20" y="300">refused · review</text>
+              <text x="186" y="316">review</text>
+              <text x="340" y="300" text-anchor="end">accepted</text>
+              <text x="240" y="488" text-anchor="middle"><tspan lang="es">notifica</tspan><tspan lang="en">notifies</tspan></text>
+              <text x="190" y="569"><tspan lang="es">publica</tspan><tspan lang="en">publishes</tspan></text>
+              <text x="190" y="639"><tspan lang="es">regla</tspan><tspan lang="en">rule</tspan></text>
+              <text x="190" y="709"><tspan lang="es">escribe</tspan><tspan lang="en">writes</tspan></text>
+              <text x="190" y="779"><tspan lang="es">lee</tspan><tspan lang="en">reads</tspan></text>
+              <text x="190" y="849"><tspan lang="es">actualiza</tspan><tspan lang="en">updates</tspan></text>
+            </g>
+            <g class="f-nodes">
+              <rect class="f-ext" x="100" y="30" width="160" height="40" rx="20"/>
+              <rect class="f-mine" x="100" y="100" width="160" height="40" rx="8"/>
+              <rect class="f-ext" x="100" y="170" width="160" height="40" rx="8"/>
+              <rect class="f-mine" x="100" y="240" width="160" height="40" rx="8"/>
+              <rect x="8" y="330" width="104" height="46" rx="23"/>
+              <rect class="f-mine" x="128" y="330" width="104" height="46" rx="8"/>
+              <rect class="f-ext" x="248" y="330" width="104" height="46" rx="8"/>
+              <rect x="248" y="400" width="104" height="40" rx="20"/>
+              <rect class="f-mine" x="100" y="510" width="160" height="40" rx="8"/>
+              <rect x="100" y="580" width="160" height="40" rx="8"/>
+              <rect class="f-mine" x="100" y="650" width="160" height="40" rx="8"/>
+              <rect x="100" y="720" width="160" height="40" rx="8"/>
+              <rect class="f-mine" x="100" y="790" width="160" height="40" rx="8"/>
+              <rect x="100" y="860" width="160" height="40" rx="8"/>
+            </g>
+            <g class="f-text" text-anchor="middle">
+              <text x="180" y="55"><tspan lang="es">Punto de venta</tspan><tspan lang="en">Point of sale</tspan></text>
+              <text x="180" y="125">Apigee proxy</text>
+              <text x="180" y="195"><tspan lang="es">Motor antifraude</tspan><tspan lang="en">Anti-fraud engine</tspan></text>
+              <text x="180" y="265"><tspan lang="es">Evaluación JS</tspan><tspan lang="en">JS evaluation</tspan></text>
+              <text x="60" y="358"><tspan lang="es">Rechazo</tspan><tspan lang="en">Rejected</tspan></text>
+              <text x="180" y="358"><tspan lang="es">Bloqueo</tspan><tspan lang="en">Block user</tspan></text>
+              <text x="300" y="358"><tspan lang="es">Lealtad</tspan><tspan lang="en">Loyalty</tspan></text>
+              <text x="300" y="425"><tspan lang="es">Respuesta</tspan><tspan lang="en">Response</tspan></text>
+              <text x="180" y="535">Webhook · Lambda</text>
+              <text x="180" y="605">EventBridge</text>
+              <text x="180" y="675"><tspan lang="es">Lambda productora</tspan><tspan lang="en">Producer Lambda</tspan></text>
+              <text x="180" y="745">Kafka</text>
+              <text x="180" y="815">Lambda Python</text>
+              <text x="180" y="885">DynamoDB</text>
+            </g>
+          </svg>
+
+          <figcaption id="flow-cap" class="flow-cap caption">
+            <span class="legend"><i class="sw sw-mine"></i><span lang="es">Lo que construí</span><span lang="en">What I built</span></span>
+            <span class="legend"><i class="sw sw-ext"></i><span lang="es">Servicios de terceros</span><span lang="en">Third-party services</span></span>
+            <span class="legend-note"><span lang="es">Flujo simplificado.</span><span lang="en">Simplified flow.</span></span>
+          </figcaption>
+        </figure>
+      </article>
+
+      <!-- Caso: Whirlpool -->
+      <article class="case" id="case-whirlpool">
+        <header class="case-head" data-reveal>
+          <p class="caption case-meta">Consiss · <span lang="es">cliente: Whirlpool</span><span lang="en">client: Whirlpool</span> · Sr Full-stack Developer · 2020–2022</p>
+          <h3 class="heading">
+            <span lang="es">Un solo componente para agendar servicio técnico en cuatro marcas.</span>
+            <span lang="en">One component to book technician visits across four brands.</span>
+          </h3>
+        </header>
+        <div class="case-grid">
+          <div class="case-body" data-reveal>
+            <h4 class="case-label"><span lang="es">Contexto</span><span lang="en">Context</span></h4>
+            <p lang="es">Whirlpool necesitaba que los clientes de Whirlpool, Acros, Maytag y KitchenAid agendaran visitas de técnicos en todo México, con la disponibilidad por región que vive en SAP. Cada marca tenía su propio sitio, con sus propios estilos.</p>
+            <p lang="en">Whirlpool needed customers of Whirlpool, Acros, Maytag and KitchenAid to book technician visits across Mexico, using regional availability stored in SAP. Each brand had its own site and its own styles.</p>
+
+            <h4 class="case-label"><span lang="es">Lo que construí</span><span lang="en">What I built</span></h4>
+            <ul lang="es">
+              <li>Un <strong>componente en Vue</strong> que se inserta con un solo elemento en cualquier sitio de marca y respeta sus colores.</li>
+              <li>Un backend en <strong>Express sobre AWS Lambda</strong>, detrás de API Gateway: validaciones, consultas a SAP (con conversión a XML), DynamoDB y el agendado final.</li>
+              <li>La distribución de los archivos del componente con <strong>S3 y CloudFront</strong>, junto con las políticas de seguridad.</li>
+            </ul>
+            <ul lang="en">
+              <li>A <strong>Vue component</strong> that drops into any brand site with a single element and follows its colors.</li>
+              <li>A backend on <strong>Express over AWS Lambda</strong>, behind API Gateway: validations, SAP queries (with XML conversion), DynamoDB and the final booking.</li>
+              <li>Delivery of the component's files through <strong>S3 and CloudFront</strong>, plus the security policies.</li>
+            </ul>
+            <h4 class="case-label"><span lang="es">El reto</span><span lang="en">The challenge</span></h4>
+            <p lang="es">Los estilos de cada sitio rompían el componente. Hubo que aislarlo con clases muy específicas para que se viera igual en las cuatro marcas.</p>
+            <p lang="en">Each site's styles broke the component. It had to be isolated with very specific classes so it looked right on all four brands.</p>
+          </div>
+          <aside class="case-aside" data-reveal>
+            <h4 class="case-label"><span lang="es">Mi rol</span><span lang="en">My role</span></h4>
+            <p lang="es">Definí la arquitectura, programé y llevé las juntas con PMs, seguridad y arquitectos de solución de Whirlpool. Tuve a mi cargo a un QA y a un especialista en estilos.</p>
+            <p lang="en">I defined the architecture, wrote the code and ran meetings with Whirlpool's PMs, security team and solution architects. A QA engineer and a styling specialist reported to me.</p>
+            <ol class="chain">
+              <li><span lang="es">Sitio de marca</span><span lang="en">Brand site</span></li>
+              <li><span lang="es">Componente Vue</span><span lang="en">Vue component</span></li>
+              <li>API Gateway</li>
+              <li><span lang="es">Express en Lambda</span><span lang="en">Express on Lambda</span></li>
+              <li>SAP · DynamoDB</li>
+            </ol>
+            <p class="tags">Vue · Express · AWS Lambda · API Gateway · DynamoDB · SAP · S3 · CloudFront</p>
+          </aside>
+        </div>
+      </article>
+
+      <!-- Caso: CFMarro -->
+      <article class="case" id="case-cfmarro">
+        <header class="case-head" data-reveal>
+          <p class="caption case-meta">Carvaz · <span lang="es">cliente: CFMarro</span><span lang="en">client: CFMarro</span> · 2017–<span lang="es">hoy</span><span lang="en">today</span></p>
+          <h3 class="heading">
+            <span lang="es">Un punto de venta con crédito que lleva más de 8 años operando cada día.</span>
+            <span lang="en">A point of sale with credit that has run every day for 8+ years.</span>
+          </h3>
+        </header>
+        <div class="case-grid">
+          <div class="case-body" data-reveal>
+            <h4 class="case-label"><span lang="es">Contexto</span><span lang="en">Context</span></h4>
+            <p lang="es">CFMarro es una distribuidora ferretera con varias sucursales. Ventas, crédito e inventario se llevaban en cuadernos y hojas de cálculo, y con el crecimiento la información dejó de alcanzar.</p>
+            <p lang="en">CFMarro is a hardware distributor with several branches. Sales, credit and inventory lived in notebooks and spreadsheets, and as the business grew the information fell short.</p>
+            <h4 class="case-label"><span lang="es">Lo que construí</span><span lang="en">What I built</span></h4>
+            <p lang="es">Un sistema que creció con el negocio: ventas en mostrador, crédito y cobranza, inventario por sucursal con aprobación de conteos, listas de precio, rutas de entrega y un tablero para el dueño.</p>
+            <p lang="en">A system that grew with the business: counter sales, credit and collections, per-branch inventory with count approvals, price lists, delivery routes and an owner dashboard.</p>
+            <h4 class="case-label"><span lang="es">El reto</span><span lang="en">The challenge</span></h4>
+            <p lang="es">El crédito: intereses moratorios, intereses sobre capital y convenios de pago que congelan el saldo para cobrarlo en parcialidades. Es el mismo tipo de problema que resolví en Wirewatt, con tablas de amortización, prórrogas y condonaciones.</p>
+            <p lang="en">Credit: late-payment interest, interest on principal and payment agreements that freeze the balance to be paid in installments. It's the same kind of problem I solved at Wirewatt, with amortization tables, extensions and write-offs.</p>
+          </div>
+          <aside class="case-aside" data-reveal>
+            <dl class="results">
+              <div><dt><span lang="es">8+ años</span><span lang="en">8+ years</span></dt><dd><span lang="es">en producción, con el mismo cliente</span><span lang="en">in production, with the same client</span></dd></div>
+            </dl>
+            <p class="tags">PHP · Laravel · Vue · MySQL · Redis · Docker</p>
+            <a class="link" href="https://carvaz.com/proyectos/cfmarro-pos" target="_blank" rel="noopener"><span lang="es">Ver el caso completo</span><span lang="en">See the full case</span> <span class="arrow" aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </article>
+
+      <!-- Historia breve: Wirewatt -->
+      <article class="case case-short" data-reveal>
+        <p class="caption case-meta">Wirewatt · Full Stack &amp; DevOps · 2019</p>
+        <h3 class="heading-sm">
+          <span lang="es">Rescatar un sistema de créditos que llegó en un .zip.</span>
+          <span lang="en">Rescuing a credit system that arrived as a .zip.</span>
+        </h3>
+        <p lang="es">La empresa canceló a su proveedor y solo recibió el código en un archivo comprimido. Monté desde cero los servidores (EC2, RDS), el repositorio y los despliegues, y seguí desarrollando el sistema: tablas de amortización, intereses moratorios con recálculo ante atrasos, prórrogas y condonaciones, y cobros con Openpay. Fui el único responsable de TI, reportando al dueño.</p>
+        <p lang="en">The company dropped its vendor and only received the code as a compressed file. I set up the servers (EC2, RDS), the repository and deployments from scratch, and kept building the system: amortization tables, late-payment interest recalculated for delays, extensions and write-offs, and Openpay payments. I was the sole IT lead, reporting to the owner.</p>
+      </article>
     </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Resource</a></li>
-        <li><a class="text-muted" href="#">Resource name</a></li>
-        <li><a class="text-muted" href="#">Another resource</a></li>
-        <li><a class="text-muted" href="#">Final resource</a></li>
-      </ul>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="products" class="section">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <p class="kicker"><span lang="es">Productos propios</span><span lang="en">Own products</span></p>
+        <h2 class="heading-lg">
+          <span lang="es">Ideas que llevé a producción.</span>
+          <span lang="en">Ideas I took to production.</span>
+        </h2>
+        <p class="sub"><span lang="es">Construidos con Carvaz y desplegados en mi propia infraestructura, con Docker, Traefik y CI/CD en GitHub Actions.</span><span lang="en">Built with Carvaz and deployed on my own infrastructure, with Docker, Traefik and CI/CD on GitHub Actions.</span></p>
+      </header>
+
+      <div class="cards cards-3" data-stagger>
+        <a class="card" data-reveal href="https://carvaz.com/proyectos/rentablesoft" target="_blank" rel="noopener">
+          <p class="caption card-kicker"><span lang="es">Renta por tiempo · IA</span><span lang="en">Time-based rentals · AI</span></p>
+          <h3 class="heading-sm">RentableSoft</h3>
+          <p lang="es">Rentas cronometradas con ticket QR y corte de caja. El registro del cliente se hace con una foto de su INE: IA y OCR llenan el formulario.</p>
+          <p lang="en">Timed rentals with QR tickets and cash reconciliation. Customers sign up with a photo of their ID: AI and OCR fill in the form.</p>
+          <p class="tags">TypeScript · Nuxt 3 · MongoDB · Docker</p>
+          <span class="link"><span lang="es">Ver el caso</span><span lang="en">See the case</span> <span class="arrow">→</span></span>
+        </a>
+        <a class="card" data-reveal href="https://carvaz.com/proyectos/barber-agenda" target="_blank" rel="noopener">
+          <p class="caption card-kicker"><span lang="es">Barberías</span><span lang="en">Barbershops</span></p>
+          <h3 class="heading-sm">Barber Agenda</h3>
+          <p lang="es">Agenda, caja, inventario y nómina para barberías con varias sucursales. Cada barbero tiene su esquema de pago: comisión, sueldo fijo o mixto.</p>
+          <p lang="en">Scheduling, register, inventory and payroll for multi-branch barbershops. Each barber has their own pay scheme: commission, fixed salary or mixed.</p>
+          <p class="tags">TypeScript · Nuxt 4 · MongoDB · Docker</p>
+          <span class="link"><span lang="es">Ver el caso</span><span lang="en">See the case</span> <span class="arrow">→</span></span>
+        </a>
+        <article class="card card-multi" data-reveal>
+          <p class="caption card-kicker"><span lang="es">Turismo de aventura</span><span lang="en">Adventure tourism</span></p>
+          <h3 class="heading-sm">unViajecito</h3>
+          <p lang="es">Marketplace donde las empresas de turismo de aventura publican sus salidas y los viajeros comparan y contactan por WhatsApp.</p>
+          <p lang="en">A marketplace where adventure tourism companies list their trips and travelers compare them and get in touch on WhatsApp.</p>
+          <p class="tags">TypeScript · Next.js · MongoDB · Docker</p>
+          <div class="card-links">
+            <a class="link" href="https://unviajecito.com" target="_blank" rel="noopener"><span lang="es">Visitar el sitio</span><span lang="en">Visit the site</span> <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="link link-muted" href="https://carvaz.com/proyectos/unviajecito" target="_blank" rel="noopener"><span lang="es">Ver el caso</span><span lang="en">See the case</span> <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <p class="sub sub-gap" data-reveal><span lang="es">Código abierto en GitHub.</span><span lang="en">Open source on GitHub.</span></p>
+      <div class="cards cards-3" data-stagger>
+        <a class="card" data-reveal href="https://github.com/AndresGodinez/expenseTracker" target="_blank" rel="noopener">
+          <h3 class="heading-sm">expenseTracker</h3>
+          <p lang="es">Registro de gastos e ingresos con reportes mensuales y resumen por correo, desarrollado con TDD.</p>
+          <p lang="en">Expense and income tracker with monthly reports and email summaries, built test-first.</p>
+          <p class="tags">Laravel · Vue · TypeScript · Docker</p>
+        </a>
+        <a class="card" data-reveal href="https://github.com/AndresGodinez/InvestmentCalculator" target="_blank" rel="noopener">
+          <h3 class="heading-sm">InvestmentCalculator</h3>
+          <p lang="es">Simulador de interés compuesto con cálculo por bloques tipo SOFIPO, pruebas unitarias y CI.</p>
+          <p lang="en">Compound interest simulator with SOFIPO-style tiered rates, unit tests and CI.</p>
+          <p class="tags">Vue 3 · TypeScript · Vitest · Vite</p>
+        </a>
+        <a class="card" data-reveal href="https://github.com/AndresGodinez/PokemonGame" target="_blank" rel="noopener">
+          <h3 class="heading-sm">PokemonGame</h3>
+          <p lang="es">Juego en Vue 3 con pruebas automatizadas.</p>
+          <p lang="en">Vue 3 game with automated tests.</p>
+          <p class="tags">Vue 3 · TypeScript</p>
+        </a>
+      </div>
     </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Business</a></li>
-        <li><a class="text-muted" href="#">Education</a></li>
-        <li><a class="text-muted" href="#">Government</a></li>
-        <li><a class="text-muted" href="#">Gaming</a></li>
-      </ul>
+  </section>
+
+  <!-- TRAYECTORIA -->
+  <section id="experience" class="section section-paper" data-spy>
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <p class="kicker"><span lang="es">Trayectoria</span><span lang="en">Experience</span></p>
+        <h2 class="heading-lg">
+          <span lang="es">De la tienda de la esquina a millones de usuarios.</span>
+          <span lang="en">From the corner shop to millions of users.</span>
+        </h2>
+      </header>
+
+      <ol class="track">
+        <li data-reveal>
+          <p class="when caption">2022 — 2026</p>
+          <p class="track-role">Sr Backend Engineer · <strong>Spin</strong></p>
+          <p class="track-line"><span lang="es">Integraciones en Apigee y arquitectura de eventos para una plataforma de lealtad con más de 38M de usuarios.</span><span lang="en">Apigee integrations and event-driven architecture for a loyalty platform with 38M+ users.</span></p>
+        </li>
+        <li data-reveal>
+          <p class="when caption">2015 — <span lang="es">hoy</span><span lang="en">today</span></p>
+          <p class="track-role"><span lang="es">Fundador</span><span lang="en">Founder</span> · <strong>Carvaz</strong></p>
+          <p class="track-line"><span lang="es">Sistemas a medida y productos propios, de la idea a producción.</span><span lang="en">Custom systems and own products, from idea to production.</span></p>
+        </li>
+        <li data-reveal>
+          <p class="when caption">2020 — 2022</p>
+          <p class="track-role">Sr Full-stack Developer · <strong>Consiss</strong></p>
+          <p class="track-line"><span lang="es">Consultoría con hasta 3 proyectos en paralelo. Líder técnico del proyecto multimarca de Whirlpool. Introduje TDD en mis proyectos.</span><span lang="en">Consulting with up to 3 projects at once. Technical lead on Whirlpool's multi-brand project. Brought TDD into my projects.</span></p>
+        </li>
+        <li data-reveal>
+          <p class="when caption">2019 — 2020</p>
+          <p class="track-role">Full Stack Developer · <strong>BarPresto</strong></p>
+          <p class="track-line"><span lang="es">Portal y API multi-tenant para una app que inventariaba botellas con la cámara.</span><span lang="en">Multi-tenant portal and API for an app that inventoried bottles with the camera.</span></p>
+        </li>
+        <li data-reveal>
+          <p class="when caption">2019</p>
+          <p class="track-role">Full Stack &amp; DevOps · <strong>Wirewatt</strong></p>
+          <p class="track-line"><span lang="es">Rescaté un sistema de créditos heredado. Único responsable de TI.</span><span lang="en">Rescued an inherited credit system. Sole IT lead.</span></p>
+        </li>
+        <li data-reveal>
+          <p class="when caption">2018 — 2019</p>
+          <p class="track-role">Full Stack Developer · <strong>Connect It</strong></p>
+          <p class="track-line"><span lang="es">APIs con Node.js y LoopBack.</span><span lang="en">APIs with Node.js and LoopBack.</span></p>
+        </li>
+        <li data-reveal>
+          <p class="when caption">2014 — 2018</p>
+          <p class="track-role"><span lang="es">Desarrollador web</span><span lang="en">Web Developer</span> · <strong>PCEL · Trazzos</strong></p>
+          <p class="track-line"><span lang="es">Tiendas en línea y sistemas internos con PHP.</span><span lang="en">Online stores and internal systems with PHP.</span></p>
+        </li>
+        <li data-reveal>
+          <p class="when caption">2010 — 2013</p>
+          <p class="track-role"><span lang="es">Gerente · <strong>Coppel</strong> · Técnico de sistemas · <strong>Casino Central</strong></span><span lang="en">Manager · <strong>Coppel</strong> · Systems technician · <strong>Casino Central</strong></span></p>
+          <p class="track-line"><span lang="es">Formación de equipos, metas de venta y atención a clientes.</span><span lang="en">Team building, sales goals and customer service.</span></p>
+        </li>
+      </ol>
+      <a class="link track-more" href="https://www.linkedin.com/in/andres-godinez" target="_blank" rel="noopener"><span lang="es">Detalle completo en LinkedIn</span><span lang="en">Full details on LinkedIn</span> <span class="arrow" aria-hidden="true">→</span></a>
     </div>
-    <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Team</a></li>
-        <li><a class="text-muted" href="#">Locations</a></li>
-        <li><a class="text-muted" href="#">Privacy</a></li>
-        <li><a class="text-muted" href="#">Terms</a></li>
-      </ul>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="section" data-spy>
+    <div class="container split split-stack">
+      <header data-reveal>
+        <p class="kicker">Stack</p>
+        <h2 class="heading-lg">
+          <span lang="es">Herramientas elegidas por el problema, no por la moda.</span>
+          <span lang="en">Tools chosen for the problem, not the trend.</span>
+        </h2>
+      </header>
+      <div class="stack" data-stagger>
+        <div data-reveal>
+          <h3 class="subheading"><span lang="es">Lenguajes</span><span lang="en">Languages</span></h3>
+          <ul class="chips"><li data-icon="php">PHP</li><li data-icon="typescript">TypeScript</li><li data-icon="javascript">JavaScript</li><li data-icon="python">Python</li><li data-icon="dotnet">C# / .NET</li><li data-icon="ruby">Ruby</li><li data-icon="table">SQL</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading">Backend</h3>
+          <ul class="chips"><li data-icon="laravel">Laravel</li><li data-icon="nodedotjs">Node.js</li><li data-icon="express">Express</li><li data-icon="loopback">LoopBack</li><li data-icon="rubyonrails">Ruby on Rails</li><li data-icon="braces">REST APIs</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading"><span lang="es">Integración y eventos</span><span lang="en">Integration and events</span></h3>
+          <ul class="chips"><li data-icon="apigee">Apigee</li><li data-icon="apigee">API Gateway</li><li data-icon="lambda">AWS Lambda</li><li data-icon="bus">EventBridge</li><li data-icon="apachekafka">Kafka</li><li data-icon="sap">SAP (XML)</li><li data-icon="card">Openpay</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading">Frontend</h3>
+          <ul class="chips"><li data-icon="vuedotjs">Vue</li><li data-icon="nuxt">Nuxt</li><li data-icon="react">React</li><li data-icon="nextdotjs">Next.js</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading"><span lang="es">Bases de datos</span><span lang="en">Databases</span></h3>
+          <ul class="chips"><li data-icon="mysql">MySQL</li><li data-icon="postgresql">PostgreSQL</li><li data-icon="mongodb">MongoDB</li><li data-icon="database">DynamoDB</li><li data-icon="redis">Redis</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading">Cloud &amp; DevOps</h3>
+          <ul class="chips"><li data-icon="cloud">AWS (EC2, S3, CloudFront, RDS)</li><li data-icon="docker">Docker</li><li data-icon="kubernetes">Kubernetes</li><li data-icon="argo">Argo CD</li><li data-icon="githubactions">GitHub Actions</li><li data-icon="traefikproxy">Traefik</li><li data-icon="linux">Linux</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading"><span lang="es">Calidad y observabilidad</span><span lang="en">Quality and observability</span></h3>
+          <ul class="chips"><li data-icon="check">TDD</li><li data-icon="flask"><span lang="es">Pruebas unitarias, de integración y E2E</span><span lang="en">Unit, integration and E2E tests</span></li><li data-icon="jest">Jest</li><li data-icon="vitest">Vitest</li><li data-icon="datadog">Datadog</li><li data-icon="snyk">Snyk</li><li data-icon="sonarqubeserver">SonarQube</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading"><span lang="es">IA aplicada</span><span lang="en">Applied AI</span></h3>
+          <ul class="chips"><li data-icon="agents"><span lang="es">Orquestación de agentes</span><span lang="en">Agent orchestration</span></li><li data-icon="spec">Spec-driven development</li><li data-icon="modelcontextprotocol">MCP</li><li data-icon="rag">RAG</li><li data-icon="n8n">n8n</li><li data-icon="githubcopilot">GitHub Copilot</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 class="subheading"><span lang="es">Equipo</span><span lang="en">Teamwork</span></h3>
+          <ul class="chips"><li data-icon="cycle">Scrum</li><li data-icon="columns">Kanban</li><li data-icon="jira">Jira</li><li data-icon="confluence">Confluence</li><li data-icon="review"><span lang="es">Revisión de código</span><span lang="en">Code review</span></li></ul>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- CONTACTO Y CIERRE: La Huasteca al amanecer -->
+  <section id="contact" class="contact-scene">
+    <picture class="scene-photo">
+      <source srcset="images/huasteca.webp" type="image/webp">
+      <img src="images/huasteca-web.jpg" alt="" width="1584" height="672" loading="lazy">
+    </picture>
+
+    <div class="container contact-inner">
+      <div class="hero-card contact-card" data-reveal>
+        <p class="kicker"><span lang="es">Contacto</span><span lang="en">Contact</span></p>
+        <h2 class="heading-lg">
+          <span lang="es">¿Construimos algo juntos?</span>
+          <span lang="en">Shall we build something together?</span>
+        </h2>
+        <p class="hero-lead">
+          <span lang="es">¿Tienes un proyecto o una vacante? Escríbeme por LinkedIn y platicamos.</span>
+          <span lang="en">Have a project or a role in mind? Message me on LinkedIn and let's talk.</span>
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/andres-godinez" target="_blank" rel="noopener">LinkedIn <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="https://github.com/AndresGodinez" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-secondary" href="https://carvaz.com" target="_blank" rel="noopener">Carvaz</a>
+        </div>
+      </div>
+
+      <div class="closing" data-reveal>
+        <p class="footer-statement">
+          <span lang="es">Software que se queda en producción.</span>
+          <span lang="en">Software that stays in production.</span>
+        </p>
+        <div class="footer-row">
+          <nav class="footer-links" aria-label="Enlaces">
+            <a href="https://www.linkedin.com/in/andres-godinez" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/AndresGodinez" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://carvaz.com" target="_blank" rel="noopener">Carvaz</a>
+          </nav>
+          <a class="btn btn-dark" href="https://www.linkedin.com/in/andres-godinez" target="_blank" rel="noopener"><span lang="es">Escríbeme</span><span lang="en">Get in touch</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p class="caption colophon">
+      © <span id="year">2026</span> Andrés Godínez ·
+      <span lang="es">Hecho a mano en Monterrey y alojado en GitHub Pages.</span>
+      <span lang="en">Handmade in Monterrey, hosted on GitHub Pages.</span>
+    </p>
   </div>
 </footer>
 
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
+<script src="script.js?v=2026-10-08k"></script>
 </body>
 </html>
