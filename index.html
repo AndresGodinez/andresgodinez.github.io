@@ -306,8 +306,8 @@
             <p lang="en">Spin runs a loyalty program with 38M+ users and about 2M daily transactions from OXXO points of sale. Every purchase must be checked for fraud and credited in the loyalty engine while the customer is still at the register.</p>
 
             <h4 class="case-label"><span lang="es">Problema</span><span lang="en">Problem</span></h4>
-            <p lang="es">Todo el flujo era síncrono: cada paso esperaba respuesta y sumaba latencia, y algunos endpoints tardaban de 15 a 20 segundos. Además, cajeros que probaban números de tarjeta llenaban los servicios de peticiones inválidas.</p>
-            <p lang="en">The whole flow was synchronous: every step waited for a response and added latency, and some endpoints took 15 to 20 seconds. On top of that, cashiers trying card numbers flooded the services with invalid requests.</p>
+            <p lang="es">Todo el flujo era síncrono: cada paso esperaba respuesta y sumaba latencia, y algunos endpoints tardaban de 5 a 7 segundos. Además, cajeros que probaban números de tarjeta llenaban los servicios de peticiones inválidas.</p>
+            <p lang="en">The whole flow was synchronous: every step waited for a response and added latency, and some endpoints took 5 to 7 seconds. On top of that, cashiers trying card numbers flooded the services with invalid requests.</p>
 
             <h4 class="case-label"><span lang="es">Lo que construí</span><span lang="en">What I built</span></h4>
             <ul lang="es">
