@@ -4,11 +4,20 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---------- Idioma ES / EN ----------
+  // Los atributos (aria-label, alt) no se pueden ocultar con CSS: se reescriben con data-es / data-en.
+  function translateAttrs(lang) {
+    document.querySelectorAll('[data-i18n-attr]').forEach(function (node) {
+      node.setAttribute(node.dataset.i18nAttr, node.dataset[lang]);
+    });
+  }
+  translateAttrs(root.dataset.lang);
+
   document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var lang = btn.dataset.setLang;
       root.lang = lang;
       root.dataset.lang = lang;
+      translateAttrs(lang);
       try { localStorage.setItem('lang', lang); } catch (e) {}
     });
   });
